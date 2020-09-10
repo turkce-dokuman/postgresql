@@ -4,8 +4,10 @@
 * [WHERE](#where)
 * [AS](#as)
 * [LIKE](#like)
-* [ORDER](#order-by)
-
+* [ORDER BY](#order-by)
+* [OR](#OR)
+* [AND](#and)
+* [NOT IN](#not-in)
 Bir veya birden fazla tablodan satırları çeker.
 #### SELECT
 Bir tabloda tüm(*) veya belirli [kolon_1, kolon_2,...] kolonları çekmek için seçim yapmanıza olanak tanır.
@@ -46,12 +48,12 @@ Bu sorguda yaşı 21 olan kullanıcıların verilerini döndürür. Tabikide sad
 `AS` komutu takma ad için kullanılabilir. Bu ne demek oluyor ?
 Şöyle, diyelimki bizim `isim` diye bir kolunumuz var ama bunu `ad` diye kullanmak istiyorum
 ```SQL
-    SELECT isim AS ad FROM kullaniclar WHERE yas > 21
+    SELECT isim AS ad FROM kullanicilar WHERE yas > 21
 ```
 
 #### LIKE 
 `LIKE`, kolonlar üzerinde arama yapmamıza olanak sağlıyor. Kullanıma geçelim.
-
+> `%dizge%`,`dizge%`,`%dizge`
 ```SQL
     SELECT * 
     FROM kullanicilar 
@@ -64,3 +66,30 @@ Burada `ismi`, `ahmet` ile eşleşen tüm satırları döndürecek. Bu şekilde 
 ``WHERE 'isim' LIKE '%met'`` burdada `isim` sütünunda `'met'` ile biten tüm kayıtlar gelecek. Yani anlamı şu sondan 3 karakteri `'met'` ile eşleşen tüm kayıtlar demek. [Daha Fazlasına Burdan Bakınız](https://www.postgresql.org/docs/current/functions-matching.html)
 
 #### ORDER BY
+`ORDER BY`, sonuçları belirtilen kolona göre listelememizi sağlıyor. Yani sorgu çekerken normal durumlarda id'ye göre getiriyor.
+>``ASC``, ``DESC``
+```SQL 
+    SELECT * FROM kullanicilar ORDER BY yas 
+```
+Bu durumda yaşı küçükten büyüğe doğru sıralar. Büyükten küçüğe doğru sıralamak için ``DESC`` kullanılır.
+```SQL 
+    SELECT * FROM kullanicilar ORDER BY yas DESC 
+```
+Bu kez tersten listeleyecek tabi bu rakamlarla sınırlı değil alfabetik sıralamada yapar normal durumda A'dan, Z'ye sıralar.
+
+#### AND 
+`AND`, sorguya yeni bir koşul eklemek için kullanılır.
+```SQL
+    SELECT * FROM kullanicilar WHERE yas > 21 AND yas > 16
+```
+#### OR 
+`OR`, sorguda 1. koşul karşılanmazsa bir sonraki koşul için kullanılır. 
+```SQL
+    SELECT * FROM kullanicilar WHERE yas > 21 OR yas > 16
+```
+#### NOT IN
+`NOT IN`, içinde olmayan sorguları getirir.
+```SQL
+    SELECT * FROM kullanicilar WHERE yas NOT IN (16,21)
+```
+Sorgu'da yaşı *16 ve 21* olan kullanıcıları getirmez.
