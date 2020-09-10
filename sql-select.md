@@ -1,5 +1,11 @@
+### İçerikler
+* [SELECT](#select)
+* [FROM](#from)
+* [WHERE](#where)
+* [AS](#as)
+
 Bir veya birden fazla tablodan satırları çeker.
-#### SELECT 
+#### SELECT
 Bir tabloda tüm(*) veya belirli [kolon_1, kolon_2,...] kolonları çekmek için seçim yapmanıza olanak tanır.
 
 ```SQL
@@ -35,7 +41,7 @@ Bu sorguda yaşı 21 olan kullanıcıların verilerini döndürür. Tabikide sad
 ```
 #### AS
 `AS` komutu takma ad için kullanılabilir. Bu ne demek oluyor ?
-Şöyle diyelimki bizim `isim` diye bir kolunumuz var ama bunu `ad` diye kullanmak istiyorum
+Şöyle, diyelimki bizim `isim` diye bir kolunumuz var ama bunu `ad` diye kullanmak istiyorum
 ```SQL
     SELECT isim AS ad FROM kullaniclar WHERE yas > 21
 ```
