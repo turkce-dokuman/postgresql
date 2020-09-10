@@ -9,6 +9,8 @@
 * [AND](#and)
 * [NOT IN](#not-in)
 * [DISTINCT](#distinct)
+* [LIMIT](#limit)
+* [OFFSET](#offset)
 # Bir veya birden fazla tablodan satırları çeker.
 #### SELECT
 Bir tabloda tüm(*) veya belirli [kolon_1, kolon_2,...] kolonları çekmek için seçim yapmanıza olanak tanır.
@@ -104,3 +106,16 @@ Burda sadece `isim` ve `soyisim` kolonlarını döndürecek. Tüm kolonlar için
 ```SQL 
   SELECT DISTINCT ON (yas) * FROM kullanicilar WHERE yas = 21
 ```
+#### LIMIT
+`LIMIT`, bir tablodan veri çekerken belli bir sayıda kayıt döndürmek için kullanılır. 
+```SQL 
+  SELECT * FROM kullanicilar LIMIT 25
+```
+Bu sorguda kullanıcılar tablosundan 25 kayıt döndürecek. 
+
+#### OFFSET
+`OFFSET`, nerden başlayacağını belirtmek için kullanılır. Mesela 50. kayıttan sonrakileri çekmek istiyoruz
+```SQL 
+  SELECT * FROM kullanicilar LIMIT 100 OFFSET 50
+```
+50'den başlayıp 100 tane kayıt döndürecek.
