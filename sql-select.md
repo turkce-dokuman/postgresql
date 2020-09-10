@@ -3,6 +3,8 @@
 * [FROM](#from)
 * [WHERE](#where)
 * [AS](#as)
+* [LIKE](#like)
+* [ORDER](#order-by)
 
 Bir veya birden fazla tablodan satırları çeker.
 #### SELECT
@@ -38,6 +40,7 @@ Bu sorguda yaşı 21 olan kullanıcıların verilerini döndürür. Tabikide sad
     -- <>: Küçüktür ve büyüktür bir arada kullanıldığında eşit olmayan yani 
             WHERE yas <> 21 
             -- yaşı 21'e eşit olan kullanıcıların verisini getirmez. != bu operatör ile aynı işlevi yapar.
+    -- <= : Küçük veya eşit bunu ayni diyelimki biz yaşı 21'e eşit ve ondan küçük olanları çekmek istiyoruz bu kullanım yeterli
 ```
 #### AS
 `AS` komutu takma ad için kullanılabilir. Bu ne demek oluyor ?
@@ -45,3 +48,19 @@ Bu sorguda yaşı 21 olan kullanıcıların verilerini döndürür. Tabikide sad
 ```SQL
     SELECT isim AS ad FROM kullaniclar WHERE yas > 21
 ```
+
+#### LIKE 
+`LIKE`, kolonlar üzerinde arama yapmamıza olanak sağlıyor. Kullanıma geçelim.
+
+```SQL
+    SELECT * 
+    FROM kullanicilar 
+    WHERE isim -- burda hangi kolon üzerinden arama yapmak istiyorsanız onu belirtin.
+    LIKE 'ahmet'
+```
+Burada `ismi`, `ahmet` ile eşleşen tüm satırları döndürecek. Bu şekilde çok işlevsel değil `WHERE isim='ahmet'` ile aynı işlevi yapar. Fakat daha farklı kullanımları var. 
+``WHERE 'isim' LIKE 'a%'`` burda `isim` sütünunda `'a'` ile başlayan tüm kayıtlar gelecek. Yani anlamı şu 1. karakteri `'a'` ondan sonraki karakterlere bakmaz.
+
+``WHERE 'isim' LIKE '%met'`` burdada `isim` sütünunda `'met'` ile biten tüm kayıtlar gelecek. Yani anlamı şu sondan 3 karakteri `'met'` ile eşleşen tüm kayıtlar demek. [Daha Fazlasına Burdan Bakınız](https://www.postgresql.org/docs/current/functions-matching.html)
+
+#### ORDER BY
