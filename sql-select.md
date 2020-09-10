@@ -8,7 +8,8 @@
 * [OR](#OR)
 * [AND](#and)
 * [NOT IN](#not-in)
-Bir veya birden fazla tablodan satırları çeker.
+* [DISTINCT](#distinct)
+# Bir veya birden fazla tablodan satırları çeker.
 #### SELECT
 Bir tabloda tüm(*) veya belirli [kolon_1, kolon_2,...] kolonları çekmek için seçim yapmanıza olanak tanır.
 
@@ -93,3 +94,13 @@ Bu kez tersten listeleyecek tabi bu rakamlarla sınırlı değil alfabetik sıra
     SELECT * FROM kullanicilar WHERE yas NOT IN (16,21)
 ```
 Sorgu'da yaşı *16 ve 21* olan kullanıcıları getirmez.
+
+#### DISTINCT
+`DISTINCT`, örnek bir tabloda aynı kayıttan birden fazla kayıt ve sadece 1 tane çekmek istiyoruz bunun için `DISTINCT` kullanabiliriz.
+```SQL
+    SELECT DISTINCT (yas) isim, soyisim FROM kullanicilar WHERE yas = 21
+```
+Burda sadece `isim` ve `soyisim` kolonlarını döndürecek. Tüm kolonlar için `ON` kullanmanız gerekecek. `SELECT DISTINCT ON ('kolon_adi') * WHERE ..`
+```SQL 
+  SELECT DISTINCT ON (yas) * FROM kullanicilar WHERE yas = 21
+```
