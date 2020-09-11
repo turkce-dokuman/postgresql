@@ -1,4 +1,4 @@
 # Postgresql
 
-#### * [CREATE TABLE](/sql-create.md)
+#### * [CREATE](/sql-create.md)
 #### * [SELECT](/sql-select.md)

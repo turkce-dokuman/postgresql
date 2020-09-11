@@ -1,6 +1,7 @@
-# PostgreSQL sunucusunda şema, veritabanı, tablo vs. oluşturabilmek için CREATE kullanırız.
-### Başlıklar
+###### PostgreSQL sunucusunda şema, veritabanı, tablo vs. oluşturabilmek için CREATE kullanırız.
+# Başlıklar
 * [Veritabanı Oluşturmak](#create-database)
+* [Tablo Oluşturmak](#create-table)
 * [Tablo Oluşturmak](#create-table)
 
 #### CREATE DATABASE 
