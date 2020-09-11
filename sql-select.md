@@ -1,4 +1,6 @@
-### İçerikler
+# Bir veya birden fazla tablodan satırları çeker.
+
+### Başlıklar
 * [SELECT](#select)
 * [FROM](#from)
 * [WHERE](#where)
@@ -11,7 +13,6 @@
 * [DISTINCT](#distinct)
 * [LIMIT](#limit)
 * [OFFSET](#offset)
-# Bir veya birden fazla tablodan satırları çeker.
 #### SELECT
 Bir tabloda tüm(*) veya belirli [kolon_1, kolon_2,...] kolonları çekmek için seçim yapmanıza olanak tanır.
 
