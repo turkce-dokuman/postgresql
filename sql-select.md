@@ -64,10 +64,11 @@ Bu sorguda yaşı 21 olan kullanıcıların verilerini döndürür. Tabikide sad
     WHERE isim -- burda hangi kolon üzerinden arama yapmak istiyorsanız onu belirtin.
     LIKE 'ahmet'
 ```
-Burada `ismi`, `ahmet` ile eşleşen tüm satırları döndürecek. Bu şekilde çok işlevsel değil `WHERE isim='ahmet'` ile aynı işlevi yapar. Fakat daha farklı kullanımları var. 
-``WHERE 'isim' LIKE 'a%'`` burda `isim` sütünunda `'a'` ile başlayan tüm kayıtlar gelecek. Yani anlamı şu 1. karakteri `'a'` ondan sonraki karakterlere bakmaz.
+Burada `ismi`, `ahmet` ile eşleşen tüm satırları döndürecek.
 
-``WHERE 'isim' LIKE '%met'`` burdada `isim` sütünunda `'met'` ile biten tüm kayıtlar gelecek. Yani anlamı şu sondan 3 karakteri `'met'` ile eşleşen tüm kayıtlar demek. [Daha Fazlasına Burdan Bakınız](https://www.postgresql.org/docs/current/functions-matching.html)
+``WHERE 'isim' LIKE 'a%'`` burda `isim` sütünunda `'a'` ile başlayan tüm kayıtlar gelecek. Yani anlamı şu 1. karakteri `'a'`'ya eşit olan.
+
+``WHERE 'isim' LIKE '%met'`` burdada `isim` sütünunda `'met'` ile biten tüm kayıtlar gelecek. [Daha Fazlasına Burdan Bakınız](https://www.postgresql.org/docs/current/functions-matching.html)
 
 #### ORDER BY
 `ORDER BY`, sonuçları belirtilen kolona göre listelememizi sağlıyor. Yani sorgu çekerken normal durumlarda id'ye göre getiriyor.
